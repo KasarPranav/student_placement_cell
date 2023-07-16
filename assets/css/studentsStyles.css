@@ -1,0 +1,16 @@
+#student-wrapper{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+
+
+/* table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+} */
+
+table th{
+    background-color: gainsboro;
+    color: white;
+}

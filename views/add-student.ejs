@@ -1,0 +1,53 @@
+<div class="containar d-flex aligns-items-center justify-content-center mt-4">
+    <form class="col-md-6 row g-3" action="/students/create-student" method="POST">
+        <h2>Student Details</h2>
+        <div class="col-md-6">
+          <label for="firstName4" class="form-label">First Name</label>
+          <input type="text" name="firstName" required class="form-control" id="firstName4">
+        </div>
+        <div class="col-md-6">
+            <label for="lastName4" class="form-label">Last Name</label>
+            <input type="text" name="lastName" required class="form-control" id="lastName4">
+        </div>
+        <div class="col-12">
+          <label for="college" class="form-label">College Name</label>
+          <input type="text" class="form-control" required name="college" id="college" placeholder="MIT Kothrud Pune">
+        </div>
+        <div class="col-md-4">
+          <label for="batch" class="form-label">Select Batch</label>
+          <select id="batch" name="batch" required class="form-select">
+            <option value="">Choose...</option>
+            <%for(item of batches){%>
+              <option value=<%=item._id%>><%=item.batch%></option>
+            <%}%>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="status" class="form-label">Placement Status</label>
+          <select id="status" name="status" required class="form-select">
+            <option value="">Choose...</option>
+            <option value="Placed">Placed</option>
+            <option value="Not_Placed">Not Placed</option>
+          </select>
+        </div>
+        <h4>Courses Score</h4>
+        <div class="col-md-4">
+            <label for="React" class="form-label">React</label>
+            <input type="text" name="react" required class="form-control" id="React">
+        </div>
+        <div class="col-md-4">
+            <label for="WebD" class="form-label">Web development</label>
+            <input type="text" name="web" required class="form-control" id="WebD">
+        </div>
+        <div class="col-md-4">
+            <label for="DSA" class="form-label">DSA</label>
+            <input type="text" name="dsa" required class="form-control" id="DSA">
+        </div> 
+        <div class="nav col-6 d-flex justify-content-start">                
+            <a class="nav-link" href="/students/students-list">Go Back</a>            
+        </div>               
+        <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>        
+      </form>
+</div>

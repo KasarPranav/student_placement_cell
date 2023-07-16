@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/css/studentsStyles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/interview/schedule-form">Schedule Interview</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/interview/extract-csv-file">Generate New CSV Report</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/resources/report.csv">Download Existing CSV Report</a>
+    </li>
+</ul>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sr. No.</th>
+        <th>Company</th>
+        <th>Interview Timings</th>
+        <th>Scheduled By</th>
+        <th>Additional Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>-->
+      <% for (let i=0; i<interviewList.length;i++) { %>
+        <tr>
+            <td><%=i+1%></td>
+            <td><%=interviewList[i].companyName[0].companyName%></td> 
+            <td><%=interviewList[i].interviewDateTime%></td>
+            <td><%=interviewList[i].scheduledBy%></td>
+            <td><a style="color: green;" href="/interview/interview-details/<%=interviewList[i]._id%>"><i class="fa-sharp fa-regular fa-arrow-right"></i></a></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>

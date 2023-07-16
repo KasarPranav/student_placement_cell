@@ -1,0 +1,32 @@
+<div class="containar d-flex aligns-items-center justify-content-center mt-4">
+    <form class="col-md-6 row g-3" action="/interview/schedule" method="POST">
+        <h2>Interview Details</h2>
+        <div class="col-md-6">
+            <label for="companyName" class="form-label">Company name</label>
+            <select id="companyName" name="companyName" required class="form-select">
+              <option value="">Choose...</option>
+              <%for(item of company){%>
+              <option value=<%=item._id%>><%=item.companyName%></option>
+              <%}%>
+            </select>
+          </div>
+          <div class="col-md-6">
+              <label for="interviewDate" class="form-label">Select Date</label>
+              <input type="datetime-local" name="dateTime" class="form-control" required id="interviewDate" name="interviewDate">
+          </div>
+        <div class="col-md-6">
+            <label for="skills" class="form-label">Skills</label>
+            <input type="text" name="skills" required class="form-control" id="skills">
+        </div>
+        <div class="col-12">
+          <label for="jobDesc" class="form-label">Job Description</label>
+          <textarea class="form-control" name="jobDescription" id="jobDesc" rows="3"></textarea>
+        </div>        
+        <div class="nav col-6 d-flex justify-content-start">                
+            <a class="nav-link" href="/interview/interview-list">Go Back</a>            
+        </div>               
+        <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-primary">Schedule</button>
+        </div>        
+      </form>
+</div>

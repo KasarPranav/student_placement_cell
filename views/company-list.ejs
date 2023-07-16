@@ -1,0 +1,27 @@
+<h2>Companies</h2>
+<div class="col-4">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Company Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>-->
+          <% for (let i=0; i<companyList.length;i++) { %>
+            <tr>
+            <td><%= i+1 %></td> 
+            <td><%= companyList[i].companyName %></td>
+        </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+</div>
+

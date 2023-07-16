@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/signInStyles.css">
+<div class="wrapper-div">
+        <form id="form-wrapper" action="/users/sign-up/create-user" method="POST">
+            <head>
+                <h1>Sign Up</h1>
+            </head>
+            <div>
+                <h5>Name</h5>
+                <input class="input" type="text" name="name" required>
+            </div>
+            <div>
+                <h5>Email</h5>
+                <input class="input" type="email" name="email" required>
+            </div>
+            <div>
+                <h5>Password</h5>
+                <input class="input" type="password" name="password" required>
+            </div>
+            <div>
+                <h5>Confirm Password</h5>
+                <input class="input" type="password" name="confirmPassword" required>
+            </div>
+            <div>                
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+</div>

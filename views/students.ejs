@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/css/studentsStyles.css">
+
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/students/add-student">Add New Student</a>
+    </li>
+</ul>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sr. No.</th>
+        <th>Name</th>
+        <th>University</th>
+        <th>Placement Status</th>
+        <th>DSA Score</th>
+        <th>React Score</th>
+        <th>Web Dev Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>-->
+      <% for (let i=0; i<studentList.length;i++) { %>
+        <tr>
+        <td><%= i+1 %></td> 
+        <td><%= studentList[i].firstName +' '+ studentList[i].lastName %></td>
+        <td><%= studentList[i].collegeName%></td>
+        <td><%= studentList[i].placementStatus%></td>
+        <td><%= studentList[i].DSAScore%></td>
+        <td><%= studentList[i].reactScore%></td>
+        <td><%= studentList[i].webDScore%></td>
+    </tr>
+      <% } %>
+    </tbody>
+  </table>
