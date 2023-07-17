@@ -10,3 +10,7 @@ html {
   body {
     min-height: 100%;
   }
+
+  #wrapper-body{
+    min-height: calc(100vh - 120px);
+  }

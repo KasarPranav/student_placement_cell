@@ -5,106 +5,110 @@
       <a class="nav-link active" aria-current="page" href="/interview/assign-student/<%=interview._id%>">Assign Student</a>
     </li>
 </ul> -->
-<div class="col-md-12 d-flex justify-content-between align-items-center">
-    <h2 class="ms-2 mt-2 col-md-6">Interview Details</h2>
-    <a class="me-2 mt-2 link-primary" href="/interview/interview-list">Go-back</a>
-</div>
-<div class="col-md-12 d-flex">
-    <div class="containar ms-2 mt-2 col-md-6 row g-3">
-        <div class="col-md-6">
-            <h5>Company Name</h5>
-            <p><%=interview.company.companyName%></p>
-        </div> 
-        <div class="col-md-6">
-            <h5>Interview Date</h5>
-            <p><%=interview.interviewDateTime%></p>
-        </div>  
-        <div class="col-md-6">
-            <h5>Skills</h5>
-            <p><%=interview.skills%></p>
-        </div> 
-        <div class="col-md-6">
-            <h5>Scheduled By</h5>
-            <p><%=interview.scheduledBy%></p>
-        </div> 
-        <div class="col-md-12">
-            <h5>Job Description</h5>
-            <p style="text-align: justify;"><%=interview.jobDescription%></p>
-        </div>
+<div id="interview-details-container">
+    <div  class="col-md-12 d-flex justify-content-between align-items-center">
+        <h2 class="ms-2 mt-2 col-md-6">Interview Details</h2>
+        <a class="me-2 mt-2 link-primary" href="/interview/interview-list"><i class="fa-solid fa-chevron-left"></i>&nbsp;Go-back</a>
     </div>
-    <div class="col-md-6">
-        <h4 class="ms-2">Assign student</h4>
-        <form class="ms-4 mt-4 containar row g-3" id="assign-student-form" action="/interview/assign-student" method="POST">
-            <div id="assign-students-input" class="d-flex">
-                <div class="col-md-4">
-                    <label for="batch"><h5>Batch</h5></label>
-                    <select id="batch" name="batchId" required class="form-select" aria-label="Default select example">
-                        <option value="">---Select Batch---</option>
-                        <%for(item of batch){%>
-                            <option value=<%=item._id%>><%=item.batch%></option>
-                        <%}%>
-                    </select>
-                    <input type="hidden" name="interviewId" value=<%=interview._id%>>
-                </div> 
+    <div class="col-md-12 d-flex">
+        <div class="containar ms-2 mt-2 col-md-6 row g-3">
+            <div class="col-md-6">
+                <h5>Company Name</h5>
+                <p><%=interview.company.companyName%></p>
+            </div> 
+            <div class="col-md-6">
+                <h5>Interview Date</h5>
+                <p><%=interview.interviewDateTime%></p>
+            </div>  
+            <div class="col-md-6">
+                <h5>Skills</h5>
+                <p><%=interview.skills%></p>
+            </div> 
+            <div class="col-md-6">
+                <h5>Scheduled By</h5>
+                <p><%=interview.scheduledBy%></p>
+            </div> 
+            <div class="col-md-12">
+                <h5>Job Description</h5>
+                <p style="text-align: justify;"><%=interview.jobDescription%></p>
             </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Assign</button>
-            </div>            
-        </form>
+        </div>
+        <div class="col-md-6">
+            <h4 class="ms-2">Assign student</h4>
+            <form class="ms-4 mt-4 containar row g-3" id="assign-student-form" action="/interview/assign-student" method="POST">
+                <div id="assign-students-input" class="d-flex">
+                    <div class="col-md-4">
+                        <label for="batch"><h5>Batch</h5></label>
+                        <select id="batch" name="batchId" required class="form-select" aria-label="Default select example">
+                            <option value="">---Select Batch---</option>
+                            <%for(item of batch){%>
+                                <option value=<%=item._id%>><%=item.batch%></option>
+                            <%}%>
+                        </select>
+                        <input type="hidden" name="interviewId" value=<%=interview._id%>>
+                    </div> 
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Assign</button>
+                </div>            
+            </form>
+        </div>
+    </div> 
+    <div>
+        <h4 class="ms-2 mt-2">Students</h4>
+        <table class="ms-2 table table-striped">
+            <thead>
+              <tr>
+                <th>Sr. No.</th>
+                <th>Student Name</th>
+                <th>Batch</th>
+                <th>Results</th>
+                <th>Update Result</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>-->
+              <%for(i=0;i<interview.results.length;i++){%>
+                <tr>
+                    <td><%=i+1%></td>
+                    <td><%=interview.results[i].student.firstName%>&nbsp;<%=interview.results[i].student.lastName%></td>
+                    <td><%=interview.results[i].student.batch.batch%></td>
+                    <td id="result-<%=interview.results[i]._id%>"><%=interview.results[i].result%></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="resultSelection<%=interview.results[i]._id%>" id="inlineRadio1-<%=interview.results[i]._id%>" value="Pass"
+                                <%if(interview.results[i].result=='Pass'){%>
+                                    checked
+                                <%}%>
+                            >
+                            <label class="form-check-label" for="inlineRadio1-<%=interview.results[i]._id%>">Pass</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="resultSelection<%=interview.results[i]._id%>" id="inlineRadio1-<%=interview.results[i]._id%>" value="Fail"
+                                <%if(interview.results[i].result=='Fail'){%>
+                                    checked
+                                <%}%>
+                            >
+                            <label class="form-check-label" for="inlineRadio1-<%=interview.results[i]._id%>">Fail</label>
+                          </div>
+                    </td>
+                    <td>
+                        <a href="#" class="link-primary update-link" data-id="<%=interview.results[i]._id%>"><i class="fa-solid fa-pen-to-square"></i>Click to update</a>
+                    </td>
+                </tr>                             
+              <%}%>
+    
+            </tbody>
+          </table>    
     </div>
-</div> 
-<div>
-    <h4 class="ms-2 mt-2">Students</h4>
-    <table class="ms-2 table table-striped">
-        <thead>
-          <tr>
-            <th>Sr. No.</th>
-            <th>Student Name</th>
-            <th>Batch</th>
-            <th>Results</th>
-            <th>Update Result</th>
-            <th>Update</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>-->
-          <%for(i=0;i<interview.results.length;i++){%>
-            <tr>
-                <td><%=i+1%></td>
-                <td><%=interview.results[i].student.firstName%>&nbsp;<%=interview.results[i].student.lastName%></td>
-                <td><%=interview.results[i].student.batch.batch%></td>
-                <td id="result-<%=interview.results[i]._id%>"><%=interview.results[i].result%></td>
-                <td>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="resultSelection<%=interview.results[i]._id%>" id="inlineRadio1-<%=interview.results[i]._id%>" value="Pass"
-                            <%if(interview.results[i].result=='Pass'){%>
-                                checked
-                            <%}%>
-                        >
-                        <label class="form-check-label" for="inlineRadio1-<%=interview.results[i]._id%>">Pass</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="resultSelection<%=interview.results[i]._id%>" id="inlineRadio1-<%=interview.results[i]._id%>" value="Fail"
-                            <%if(interview.results[i].result=='Fail'){%>
-                                checked
-                            <%}%>
-                        >
-                        <label class="form-check-label" for="inlineRadio1-<%=interview.results[i]._id%>">Fail</label>
-                      </div>
-                </td>
-                <td>
-                    <a href="#" class="link-primary update-link" data-id="<%=interview.results[i]._id%>">Click to update</a>
-                </td>
-            </tr>                             
-          <%}%>
 
-        </tbody>
-      </table>    
 </div>
+
 <script src="/js/assignStudent.js"></script>
 <script src="/js/updateResult.js"></script>

@@ -1,18 +1,21 @@
 #wrapper-home{
-    height: 500px;
+    min-height: calc(100vh - 120px);
     width: 80%;
     /* background-color: aquamarine; */
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 #heading{
     text-align: center;
     margin-top: 10px;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%,-50%);
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 #wrapper-options{
@@ -21,17 +24,17 @@
     flex-direction: row;
     justify-content: center;
     color: gray;
-    align-items: center;    
+    align-items: center; 
 }
 .options-div{
     height: 100px;
     width: 200px;
-    background-color: rgb(214, 126, 126);
-
+    background-color: rgb(241, 20, 20);
     line-height: 100px;
     text-align: center;
     border: none;
     font-size: larger;
+
 }
 #wrapper-options button{
     text-decoration: none;

@@ -1,0 +1,12 @@
+#action-links{
+    margin-top: 60px;
+    margin-left:10px;
+    border-left: 2px solid lightgray;
+
+}
+#table-container{
+    width: 85%;
+}
+#action-links div{
+    margin-left: 4px;
+}

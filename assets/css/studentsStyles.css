@@ -1,7 +1,7 @@
 #student-wrapper{
+    min-height: calc(100vh - 120px);
     height: 100%;
-    width: 100%;
-    background-color: aqua;
+    width: 100%;   
 }
 
 

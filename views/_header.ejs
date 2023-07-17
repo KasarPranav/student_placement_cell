@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="/css/headerStyles.css">
 <header>
-    <h1><a href="/">OneStop Placement</a></h1>
+    <a href="/"><h1>OneStop Placement</h1></a>
     <ul>
         <%if(!locals.user){%>
         <li><a href="/users/sign-in">Sign-In</a></li>
         <li><a href="/users/sign-up">Sign-Up</a></li>
         <%}else{%>
             <li><%=locals.user.name%></li>
-            <li><a href="/users/log-out">Log Out</a></li>
+            <li><a href="/users/log-out">Log-Out</a></li>
         <%}%>
     </ul>
 </header>

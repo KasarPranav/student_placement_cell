@@ -1,4 +1,5 @@
-<div class="containar d-flex aligns-items-center justify-content-center mt-4">
+<div id="wrapper-body">
+  <div class="containar d-flex aligns-items-center justify-content-center mt-4">
     <form class="col-md-6 row g-3" action="/interview/schedule" method="POST">
         <h2>Interview Details</h2>
         <div class="col-md-6">
@@ -23,10 +24,12 @@
           <textarea class="form-control" name="jobDescription" id="jobDesc" rows="3"></textarea>
         </div>        
         <div class="nav col-6 d-flex justify-content-start">                
-            <a class="nav-link" href="/interview/interview-list">Go Back</a>            
+            <a class="nav-link" href="/interview/interview-list"><i class="fa-solid fa-chevron-left"></i>&nbsp;Go Back</a>            
         </div>               
         <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
           <button type="submit" class="btn btn-primary">Schedule</button>
         </div>        
       </form>
 </div>
+</div>
+
