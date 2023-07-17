@@ -1,9 +1,9 @@
 const batchOption = $('#batch option:selected');
 const batch = $('#batch')
 let selectBatch = async function(req,res){
-         console.log("****", soval(batch));
+        //  console.log("****", soval(batch));
         if(soval(batch)){
-            let data = await fetch(`http://localhost:3000/students/getStudentByBatchName/${soval(batch)}`);
+            let data = await fetch(`/students/getStudentByBatchName/${soval(batch)}`);
             let studentData =  await data.json();
             const studentSelection = `<div id="select-student" class="col-md-4 ms-4">
                                         <label for="student"><h5>Student</h5></label>
